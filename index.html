@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dealer Mitra - Wireframes</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Using Phosphor Icons for a clean, professional look -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <div class="device-frame">
+        <!-- TOP BAR -->
+        <header class="top-bar">
+            <div class="logo-area">
+                <i class="ph ph-plant"></i>
+                <h1>Dealer Mitra</h1>
+            </div>
+            <div class="user-info">
+                <i class="ph ph-user-circle"></i>
+                <span>Agri Inputs Hub</span>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT AREA -->
+        <main id="app-content">
+            <!-- Screen 1: Dashboard -->
+            <section id="screen-dashboard" class="screen active">
+                <div class="card credit-card" style="display: flex; justify-content: space-between; align-items: center; gap: 16px;">
+                    <div>
+                        <p class="credit-label" style="color: rgba(255,255,255,0.8); font-size: 13px;">Active Credit Limit</p>
+                        <h2 style="color: var(--white); font-size: 24px; margin: 4px 0;">₹5,00,000</h2>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 13px;">Used: ₹1,20,000</p>
+                    </div>
+                    <div class="chart-container" style="position: relative; width: 80px; height: 80px;">
+                        <svg viewBox="0 0 36 36" style="transform: rotate(-90deg); width: 100%; height: 100%;">
+                            <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="3"></path>
+                            <path id="credit-progress-ring" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="var(--white)" stroke-width="3" stroke-dasharray="0, 100"></path>
+                        </svg>
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--white); font-size: 13px; font-weight: 700;">24%</div>
+                    </div>
+                </div>
+
+                <div class="card ai-insight-card" id="ai-briefing-card" style="background-color: #F0F9FF; border-left: 4px solid #0EA5E9; padding: 12px 16px;">
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                        <i class="ph ph-sparkle" style="color: #0EA5E9;"></i>
+                        <span style="font-size: 11px; font-weight: 700; color: #0EA5E9; text-transform: uppercase;">AI Business Insight</span>
+                    </div>
+                    <p id="ai-briefing-text" style="font-size: 13px; font-weight: 500; color: #0C4A6E; line-height: 1.4;">
+                        Loading your daily business brief...
+                    </p>
+                </div>
+
+                <div class="section-title">Traffic Light Inventory Summary</div>
+                <div class="card inventory-summary">
+                    <div class="inv-item">
+                        <div class="traffic-light green"></div>
+                        <div class="inv-details">
+                            <span class="inv-status">In Stock</span>
+                            <span class="inv-count">142 SKUs</span>
+                        </div>
+                    </div>
+                    <div class="inv-item">
+                        <div class="traffic-light yellow"></div>
+                        <div class="inv-details">
+                            <span class="inv-status">Low Stock</span>
+                            <span class="inv-count">8 SKUs</span>
+                        </div>
+                    </div>
+                    <div class="inv-item">
+                        <div class="traffic-light red"></div>
+                        <div class="inv-details">
+                            <span class="inv-status">Out of Stock</span>
+                            <span class="inv-count">12 SKUs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-title">Recent Shipments</div>
+                <div class="card shipments">
+                    <div class="shipment-row">
+                        <div class="ship-info">
+                            <span class="order-num">#ORD-9021</span>
+                            <span class="ship-status in-transit">In Transit</span>
+                        </div>
+                        <span class="eta">ETA: Tomorrow</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="shipment-row">
+                        <div class="ship-info">
+                            <span class="order-num">#ORD-9018</span>
+                            <span class="ship-status processing">Processing</span>
+                        </div>
+                        <span class="eta">ETA: Oct 25</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Screen 2: Quick-Order Grid -->
+            <section id="screen-quick-order" class="screen hidden">
+                <div class="page-header">
+                    <h2>Bulk Order Entry</h2>
+                    <p class="subtitle">Paddy Season</p>
+                </div>
+
+                <div class="spreadsheet-container">
+                    <div class="ss-header">
+                        <div class="col-product">Product</div>
+                        <div class="col-stock">Stock</div>
+                        <div class="col-qty">Input Qty</div>
+                    </div>
+                    <!-- Row 1 -->
+                    <div class="ss-row">
+                        <div class="col-product">
+                            <div class="traffic-light green"></div>
+                            <span>O-MAX 40kg</span>
+                        </div>
+                        <div class="col-stock">120</div>
+                        <div class="col-qty"><input type="number" value="0" min="0" class="qty-input"></div>
+                    </div>
+                    <!-- Row 2 -->
+                    <div class="ss-row">
+                        <div class="col-product">
+                            <div class="traffic-light yellow"></div>
+                            <span>Humate Power 1L</span>
+                        </div>
+                        <div class="col-stock">15</div>
+                        <div class="col-qty"><input type="number" value="0" min="0" class="qty-input"></div>
+                    </div>
+                    <!-- Row 3 -->
+                    <div class="ss-row">
+                        <div class="col-product">
+                            <div class="traffic-light red"></div>
+                            <span>Bramha-Zyme 5kg</span>
+                        </div>
+                        <div class="col-stock">0</div>
+                        <div class="col-qty"><input type="number" value="0" min="0" class="qty-input"></div>
+                    </div>
+                    <!-- Row 4 -->
+                    <div class="ss-row">
+                        <div class="col-product">
+                            <div class="traffic-light green"></div>
+                            <span>Neo-20 25kg</span>
+                        </div>
+                        <div class="col-stock">85</div>
+                        <div class="col-qty"><input type="number" value="0" min="0" class="qty-input"></div>
+                    </div>
+                    <!-- Row 5 -->
+                    <div class="ss-row">
+                        <div class="col-product">
+                            <div class="traffic-light green"></div>
+                            <span>Bio-NPK 1L</span>
+                        </div>
+                        <div class="col-stock">200</div>
+                        <div class="col-qty"><input type="number" value="0" min="0" class="qty-input"></div>
+                    </div>
+                </div>
+
+                <button class="btn-primary bulk-btn">Add All to Cart (0 items)</button>
+            </section>
+
+            <!-- Screen 3: Product Catalog -->
+            <section id="screen-catalog" class="screen hidden">
+                <div class="search-filter-bar">
+                    <div class="search-input">
+                        <i class="ph ph-magnifying-glass"></i>
+                        <input type="text" placeholder="Search products...">
+                    </div>
+                    <select class="category-filter">
+                        <option>All Categories</option>
+                        <option>Biofertilizers</option>
+                        <option>Biopesticides</option>
+                        <option>Micronutrients</option>
+                        <option>Bio-stimulants</option>
+                    </select>
+                </div>
+
+                <div class="product-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card">
+                        <div class="img-placeholder"><i class="ph ph-package"></i></div>
+                        <div class="prod-info">
+                            <h3>O-MAX</h3>
+                            <p class="pack-size">40kg Bag</p>
+                            <div class="prod-meta">
+                                <div class="traffic-light green"></div>
+                                <span class="price">₹1,200</span>
+                            </div>
+                            <button class="btn-link view-specs-btn" data-product="omax">View Specs</button>
+                        </div>
+                    </div>
+                    <!-- Product 2 -->
+                    <div class="product-card">
+                        <div class="img-placeholder"><i class="ph ph-flask"></i></div>
+                        <div class="prod-info">
+                            <h3>Humate Power</h3>
+                            <p class="pack-size">1L Bottle</p>
+                            <div class="prod-meta">
+                                <div class="traffic-light yellow"></div>
+                                <span class="price">₹450</span>
+                            </div>
+                            <button class="btn-link view-specs-btn" data-product="humate">View Specs</button>
+                        </div>
+                    </div>
+                    <!-- Product 3 -->
+                    <div class="product-card">
+                        <div class="img-placeholder"><i class="ph ph-bag"></i></div>
+                        <div class="prod-info">
+                            <h3>Bramha-Zyme</h3>
+                            <p class="pack-size">5kg Pouch</p>
+                            <div class="prod-meta">
+                                <div class="traffic-light red"></div>
+                                <span class="price">₹800</span>
+                            </div>
+                            <button class="btn-link view-specs-btn" data-product="bramha">View Specs</button>
+                        </div>
+                    </div>
+                    <!-- Product 4 -->
+                    <div class="product-card">
+                        <div class="img-placeholder"><i class="ph ph-package"></i></div>
+                        <div class="prod-info">
+                            <h3>Neo-20</h3>
+                            <p class="pack-size">25kg Bag</p>
+                            <div class="prod-meta">
+                                <div class="traffic-light green"></div>
+                                <span class="price">₹950</span>
+                            </div>
+                            <button class="btn-link view-specs-btn" data-product="neo">View Specs</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Knowledge Card Modal Overlay -->
+                <div id="knowledge-modal" class="modal-overlay hidden">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Technical Knowledge Card</h3>
+                            <button class="close-modal"><i class="ph ph-x"></i></button>
+                        </div>
+                        <h2 class="modal-product-title">O-MAX</h2>
+                        <div class="modal-body">
+                            <div class="spec-row">
+                                <i class="ph ph-drop"></i>
+                                <div>
+                                    <h4>Dosage Instructions</h4>
+                                    <p>2kg per acre</p>
+                                </div>
+                            </div>
+                            <div class="spec-row">
+                                <i class="ph ph-plant"></i>
+                                <div>
+                                    <h4>Soil Compatibility</h4>
+                                    <p>All soil types (ideal for pH 6.5 - 7.5)</p>
+                                </div>
+                            </div>
+                            <div class="spec-row">
+                                <i class="ph ph-chart-line-up"></i>
+                                <div>
+                                    <h4>Expected Yield Outcome</h4>
+                                    <p>+15% grain weight</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Screen 4: My Orders -->
+            <section id="screen-orders" class="screen hidden">
+                <div class="page-header">
+                    <h2>Past Orders</h2>
+                </div>
+                
+                <div class="order-list">
+                    <!-- Order 1 -->
+                    <div class="card order-card">
+                        <div class="order-header">
+                            <div>
+                                <span class="order-num">#1234</span>
+                                <span class="order-date">Oct 12, 2026</span>
+                            </div>
+                            <button class="icon-btn" title="Download Invoice"><i class="ph ph-file-pdf"></i></button>
+                        </div>
+                        <div class="order-total">Total: ₹45,200</div>
+                        <button class="btn-secondary clone-btn" data-order="1234"><i class="ph ph-copy"></i> Clone Order</button>
+                    </div>
+                    <!-- Order 2 -->
+                    <div class="card order-card">
+                        <div class="order-header">
+                            <div>
+                                <span class="order-num">#1189</span>
+                                <span class="order-date">Sep 28, 2026</span>
+                            </div>
+                            <button class="icon-btn" title="Download Invoice"><i class="ph ph-file-pdf"></i></button>
+                        </div>
+                        <div class="order-total">Total: ₹12,500</div>
+                        <button class="btn-secondary clone-btn" data-order="1189"><i class="ph ph-copy"></i> Clone Order</button>
+                    </div>
+                    <!-- Order 3 -->
+                    <div class="card order-card">
+                        <div class="order-header">
+                            <div>
+                                <span class="order-num">#1055</span>
+                                <span class="order-date">Aug 15, 2026</span>
+                            </div>
+                            <button class="icon-btn" title="Download Invoice"><i class="ph ph-file-pdf"></i></button>
+                        </div>
+                        <div class="order-total">Total: ₹89,000</div>
+                        <button class="btn-secondary clone-btn" data-order="1055"><i class="ph ph-copy"></i> Clone Order</button>
+                    </div>
+                </div>
+
+                <div class="section-title">Seasonal Bundles (AI Recommended)</div>
+                <div class="bundle-list" id="ai-bundle-list">
+                    <p style="font-size:13px; color:var(--slate-grey); text-align:center; padding: 20px;">
+                        Loading AI recommendations...
+                    </p>
+                </div>
+
+                <!-- Toast Notification for Clone Order -->
+                <div id="toast" class="toast hidden">
+                    <div class="toast-content">
+                        <p id="toast-message">Order #1234 added to cart. Modify quantities?</p>
+                        <button class="btn-text toast-action">View Cart</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- BOTTOM NAVIGATION -->
+        <nav class="bottom-nav">
+            <a href="#" class="nav-item active" data-target="screen-dashboard">
+                <i class="ph ph-house"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="nav-item" data-target="screen-quick-order">
+                <i class="ph ph-list-numbers"></i>
+                <span>Quick Order</span>
+            </a>
+            <a href="#" class="nav-item" data-target="screen-catalog">
+                <i class="ph ph-grid-four"></i>
+                <span>Products</span>
+            </a>
+            <a href="#" class="nav-item" data-target="screen-orders">
+                <i class="ph ph-receipt"></i>
+                <span>Orders</span>
+            </a>
+        </nav>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

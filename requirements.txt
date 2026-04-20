@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+pymongo
+google-genai
+python-dotenv
+aiofiles
